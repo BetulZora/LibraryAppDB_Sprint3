@@ -47,7 +47,7 @@ public class UserInfoStepDefs {
 
 
     }
-
+/*
     @When("Execute query to get all columns")
     public void execute_query_to_get_all_columns() {
         // Write code here that turns the phrase above into concrete actions
@@ -63,7 +63,7 @@ public class UserInfoStepDefs {
         //
         // For other transformations you can register a DataTableType.
         throw new io.cucumber.java.PendingException();
-    }
+    }*/
 
 
 
