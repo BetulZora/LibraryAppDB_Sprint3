@@ -18,3 +18,10 @@ select * from users;
 -- US 03
 select count(*) from book_borrow
 where is_returned=0;
+
+select book_id, planned_return_date, returned_date, is_returned from book_borrow;
+
+select book_id from book_borrow where is_returned=0;
+
+select * from book_categories;
+select book_category_id from books where id=912;
