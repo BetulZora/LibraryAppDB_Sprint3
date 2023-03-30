@@ -95,6 +95,7 @@ public class BrowserUtil {
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
 
+
     /**
      * Waits for element matching the locator to be visible on the page
      *
