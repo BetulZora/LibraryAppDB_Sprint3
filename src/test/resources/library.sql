@@ -22,9 +22,24 @@ select count(*) from book_borrow
 where is_returned=0;
 
 
+
+
+
+
+
+
+
+
+
+
+
 -- US 05
 -- Query for most popular book category
 select name from book_categories where id
  = (select book_category_id from books where books.id
  = (select book_id from (select book_id, count(*)
 from book_borrow group by book_id order by 2 desc limit 1) popularBook));
+
+--US 06
+select name, author, isbn from books
+where name= 'Head First Java';
