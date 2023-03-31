@@ -4,6 +4,8 @@ select count(id) from users; --
 -- 1855
 
 select count(distinct id) from users;
+
+
 -- 1855
 
 
@@ -19,6 +21,7 @@ select * from users;
 select count(*) from book_borrow
 where is_returned=0;
 
+<<<<<<< HEAD
 SELECT * FROM book_borrow;
 
 SELECT name
@@ -61,4 +64,28 @@ SELECT * FROM book_borrow
 
 select count(*) from book_borrow
 where is_returned=0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- US 05
+-- Query for most popular book category
+select name from book_categories where id
+ = (select book_category_id from books where books.id
+ = (select book_id from (select book_id, count(*)
+from book_borrow group by book_id order by 2 desc limit 1) popularBook));
+
+--US 06
+select name, author, isbn from books
+where name= 'Head First Java';
 
