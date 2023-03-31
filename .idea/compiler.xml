@@ -6,8 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="LibraryAppDB_Sprint3" />
         <module name="LibraryAppDB_Assignments" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="LibraryAppDB_Assignments" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
