@@ -50,7 +50,9 @@ public class US06_IN {
 
     @Then("verify {string} message is displayed_IN")
     public void verify_message_is_displayed_in(String string) {
+        BrowserUtil.waitFor(2);
         Assert.assertTrue(bookPage.toastMessage.isDisplayed());
+        BrowserUtil.waitFor(2);
     }
 
     @Then("verify {string} information must match with DB_IN")
