@@ -18,6 +18,10 @@ public class UserSignsOnAndNavigatesStepDefs {
      * US02, 03, 04, 06, 07
      * type as string "librarian" or "student"
      */
+    //@Given("the {string} on the home page")
+    //public void the_on_the_home_page(String string) {
+
+    //}
 
     LoginPage loginPage;
 
@@ -27,10 +31,12 @@ public class UserSignsOnAndNavigatesStepDefs {
         loginPage.login(librarian);
     }
 
+
     /**
      * US03, 04, 06, 07
      * user type as string "librarian" or "student"
      */
+
     @When("the user navigates to {string} page")
     public void the_user_navigates_to_page(String string) {
         WebElement booksPage = Driver.getDriver().findElement(By.linkText("Books"));

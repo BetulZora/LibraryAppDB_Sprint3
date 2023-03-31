@@ -14,9 +14,13 @@ public class BookPage extends BasePage {
     @FindBy(xpath = "//table/tbody/tr")
     public List<WebElement> allRows;
 
+    @FindBy(xpath = "//span[.='Books']")
+    public WebElement BooksButton;
+
     @FindBy(xpath = "//input[@type='search']")
     public WebElement search;
-
+    @FindBy(xpath = "//span[.='Borrowing Books']")
+    public WebElement BorrowingBook;
     @FindBy(id = "book_categories")
     public WebElement mainCategoryElement;
 
@@ -42,6 +46,8 @@ public class BookPage extends BasePage {
     @FindBy(name = "isbn")
     public WebElement isbn;
 
+    @FindBy(xpath =("//th[.='ISBN']"))
+    public WebElement isbnButton;
     @FindBy(id = "book_group_id")
     public WebElement categoryDropdown;
 
