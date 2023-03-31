@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+@us06 @ui
+=======
 @us06
+>>>>>>> 3ca0025bd15631e110df328d8da0683d8951bcdf
 Feature: Books module
   As a librarian, I should be able to add new book into library
 
