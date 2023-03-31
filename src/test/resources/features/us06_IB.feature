@@ -4,8 +4,8 @@ Feature: Books module
 
   @db @ui
   Scenario Outline: Verify added book is matching with DB
-    Given the "librarian" on the home page IB
-    And the user navigates  to "Books" page IB
+    Given the "librarian" on the home page
+    And the user navigates to "Books" page
     When the librarian click to add book IB
     And the librarian enter book name "<Book Name>" IB
     When the librarian enter ISBN "<ISBN>" IB
