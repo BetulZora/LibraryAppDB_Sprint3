@@ -4,7 +4,9 @@ import com.library.utility.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BookPage extends BasePage {
@@ -12,9 +14,13 @@ public class BookPage extends BasePage {
     @FindBy(xpath = "//table/tbody/tr")
     public List<WebElement> allRows;
 
+    @FindBy(xpath = "//span[.='Books']")
+    public WebElement BooksButton;
+
     @FindBy(xpath = "//input[@type='search']")
     public WebElement search;
-
+    @FindBy(xpath = "//span[.='Borrowing Books']")
+    public WebElement BorrowingBook;
     @FindBy(id = "book_categories")
     public WebElement mainCategoryElement;
 
@@ -40,6 +46,8 @@ public class BookPage extends BasePage {
     @FindBy(name = "isbn")
     public WebElement isbn;
 
+    @FindBy(xpath =("//th[.='ISBN']"))
+    public WebElement isbnButton;
     @FindBy(id = "book_group_id")
     public WebElement categoryDropdown;
 
@@ -59,6 +67,22 @@ public class BookPage extends BasePage {
         String xpath = "//td[3][.='" + book + "']/../td/a";
         return Driver.getDriver().findElement(By.xpath(xpath));
     }
+
+    // verifyCategoryDropdown() method is needed for US03_BZ
+    public List<String> verifyCategoryDropdown(){
+        Select select = new Select(this.mainCategoryElement);
+        List<WebElement> dropDownOptions = select.getOptions();
+        List<String> dropDownText = new ArrayList<>();
+        for (WebElement dropDownOption : dropDownOptions) {
+            dropDownText.add(dropDownOption.getText());
+        }
+        System.out.println("dropDownText = " + dropDownText);
+        dropDownText.remove("ALL");
+        System.out.println("dropDownText = " + dropDownText);
+        return dropDownText;
+    }
+
+
 
 
 
