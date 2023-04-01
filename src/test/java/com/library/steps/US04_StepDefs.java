@@ -1,6 +1,5 @@
 package com.library.steps;
 
-import com.library.pages.BasePage;
 import com.library.pages.BookPage;
 import com.library.pages.DashBoardPage;
 import com.library.pages.LoginPage;
@@ -10,7 +9,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.support.ui.Select;
 
 import java.util.Map;
 

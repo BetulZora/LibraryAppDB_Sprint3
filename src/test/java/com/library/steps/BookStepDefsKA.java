@@ -18,26 +18,26 @@ public class BookStepDefsKA {
 
     String bookName;
 
-    @Given("the {string} on the home page")
+    @Given("the {string} on the home page KA")
     public void the_on_the_home_page(String User) {
 Driver.getDriver().get("https://library2.cydeo.com/login.html");
         LoginPage=new LoginPage();
         LoginPage.login(User);
         BrowserUtil.waitFor(2);
     }
-    @Given("the user navigates to {string} page")
+    @Given("the user navigates to {string} page KA")
     public void the_user_navigates_to_page(String Module) {
         bookPage = new BookPage();
         bookPage.navigateModule(Module);
         BrowserUtil.waitFor(2);
     }
 
-    @When("the user clicks Borrow Book")
+    @When("the user clicks Borrow Book KA")
     public void the_user_clicks_borrow_book() {
 bookPage.isbnButton.click();
         BrowserUtil.waitFor(1);
 
-        bookPage.borrowBook(bookName).click();
+        BrowserUtil.waitForClickablility(bookPage.borrowBook(bookName),5 ).click();
         BrowserUtil.waitFor(2);
     }
     @And("the user searches book name called {string}")
