@@ -92,3 +92,7 @@ from book_borrow group by book_id order by 2 desc limit 1) popularBook));
 select name, author, isbn from books
 where name= 'Head First Java';
 
+
+
+
+select * from books where isbn = 999239923;

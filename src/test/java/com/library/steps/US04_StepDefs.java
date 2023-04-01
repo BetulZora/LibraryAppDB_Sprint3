@@ -9,7 +9,11 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.Select;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 public class US04_StepDefs {
@@ -38,6 +42,7 @@ public class US04_StepDefs {
     }
     @Then("book information must match the Database MG")
     public void book_information_must_match_the_database_mg() {
+        /*
         String actualBookName = bookPage.bookName.getAttribute("value");
 
         String actualAuthorName = bookPage.author.getAttribute("value");
@@ -45,8 +50,8 @@ public class US04_StepDefs {
         String actualISBN = bookPage.isbn.getAttribute("value");
 
         String actualYear = bookPage.year.getAttribute("value");
-
-        String actualCategory = bookPage.categoryDropdown.getAttribute("value");
+        Select select = new Select(bookPage.categoryDropdown);
+        String actualCategory = select.getFirstSelectedOption().getText();
 
         String actualDescription= bookPage.description.getAttribute("value");
 
@@ -56,6 +61,7 @@ public class US04_StepDefs {
 
         DB_Util.runQuery(query);
         Map<String, String> bookInfo = DB_Util.getRowMap(1);
+        System.out.println("Mirshad's map= " + bookInfo);
 
         String expectedBookName = bookInfo.get("name");
         String expectedAuthorName = bookInfo.get("author");
@@ -78,6 +84,29 @@ public class US04_StepDefs {
         Assert.assertEquals(expectedBookCategoryID,actualCategory);
 
         Assert.assertEquals(actualDescription,expectedDescription);
+
+         */
+        //bookPage = new BookPage();
+        String bookNameUI = bookPage.bookName.getAttribute("value");
+        String authorNameUI = bookPage.author.getAttribute("value");
+        String isbnUI = bookPage.isbn.getAttribute("value");
+        String year = bookPage.year.getAttribute("value");
+
+        Select select = new Select(bookPage.categoryDropdown);
+        String categoryUI = select.getFirstSelectedOption().getText();
+
+        List<String> bookInfoUI = new ArrayList<>(Arrays.asList(bookNameUI, authorNameUI, isbnUI, year, categoryUI));
+
+        // DB
+        String query = "select b.name, author, isbn, year, bc.name from books b join book_categories bc on b.book_category_id = bc.id\n" +
+                "where b.name = '" + bookName + "'\n" +
+                "order by isbn desc";
+        DB_Util.runQuery(query);
+
+        List<String> bookInfoDB = DB_Util.getRowDataAsList(1);
+        System.out.println("bookInfoDB = " + bookInfoDB);
+
+        Assert.assertEquals(bookInfoDB, bookInfoUI);
 
 
 

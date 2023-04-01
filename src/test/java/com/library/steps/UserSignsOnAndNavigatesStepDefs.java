@@ -1,5 +1,6 @@
 package com.library.steps;
 
+import com.library.pages.BasePage;
 import com.library.pages.LoginPage;
 import com.library.utility.Driver;
 import io.cucumber.java.en.Given;
@@ -15,6 +16,7 @@ public class UserSignsOnAndNavigatesStepDefs {
      */
 
     LoginPage loginPage;
+    BasePage basePage = new BasePage();
 
     @Given("the {string} on the home page")
     public void the_on_the_home_page(String librarian) {
@@ -29,9 +31,10 @@ public class UserSignsOnAndNavigatesStepDefs {
      */
 
     @When("the user navigates to {string} page")
-    public void the_user_navigates_to_page(String string) {
-        WebElement booksPage = Driver.getDriver().findElement(By.linkText("Books"));
-        booksPage.click();
+    public void the_user_navigates_to_page(String page) {
+//        WebElement booksPage = Driver.getDriver().findElement(By.linkText("Books"));
+//        booksPage.click();
+        basePage.navigateModule(page);
     }
 
 
